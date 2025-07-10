@@ -1,25 +1,68 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useMemo, useState } from "react";
+import {
+  CssBaseline,
+  ThemeProvider,
+  createTheme,
+  IconButton,
+  Box,
+  Typography,
+} from "@mui/material";
+import Brightness4Icon from "@mui/icons-material/Brightness4";
+import Brightness7Icon from "@mui/icons-material/Brightness7";
+import ShowChartIcon from "@mui/icons-material/ShowChart";
+import StockScreenerForm from "./components/StockScreenerForm";
 
 function App() {
+  const [mode, setMode] = useState<"light" | "dark">("light");
+
+  const theme = useMemo(
+    () =>
+      createTheme({
+        palette: {
+          mode,
+          primary: {
+            main: mode === "dark" ? "#90caf9" : "#1976d2",
+          },
+        },
+      }),
+    [mode]
+  );
+
+  const toggleTheme = () => {
+    setMode((prev) => (prev === "light" ? "dark" : "light"));
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Box sx={{ display: "flex", justifyContent: "flex-end", p: 2 }}>
+        <IconButton onClick={toggleTheme} color="inherit">
+          {mode === "dark" ? <Brightness7Icon /> : <Brightness4Icon />}
+        </IconButton>
+      </Box>
+
+      {/* Logo above the form */}
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          gap: 1,
+          justifyContent: "center",
+          mb: 4,
+        }}
+      >
+        <ShowChartIcon color="primary" sx={{ fontSize: 48 }} />
+        <Typography
+          variant="h3"
+          component="h1"
+          sx={{ fontWeight: "bold", userSelect: "none" }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          Value Hunter
+        </Typography>
+      </Box>
+
+      <StockScreenerForm />
+    </ThemeProvider>
   );
 }
 

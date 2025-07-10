@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/value-hunter/static/css/main.e6c13ad2.css",
+    "main.js": "/value-hunter/static/js/main.136141f4.js",
+    "static/js/453.47565c9f.chunk.js": "/value-hunter/static/js/453.47565c9f.chunk.js",
+    "index.html": "/value-hunter/index.html",
+    "main.e6c13ad2.css.map": "/value-hunter/static/css/main.e6c13ad2.css.map",
+    "main.136141f4.js.map": "/value-hunter/static/js/main.136141f4.js.map",
+    "453.47565c9f.chunk.js.map": "/value-hunter/static/js/453.47565c9f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.136141f4.js"
+  ]
+}

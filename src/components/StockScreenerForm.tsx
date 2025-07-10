@@ -88,7 +88,7 @@ export default function StockScreenerForm() {
       )
       .join("&");
 
-    fetch(`http://localhost:3002/run?${query}`)
+    fetch(`https://value-hunter-api.onrender.com/run?${query}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error(`Server error: ${response.statusText}`);
